@@ -30,26 +30,26 @@ li {
 }
 
 .content {
-    display: grid;
+    /* display: grid;
 
-    grid-template-columns: 80% 20%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
-    grid-template-rows: 1fr 1fr;
-
+    grid-template-rows: 1fr 1fr; */
+    display: flex;
+    flex-wrap: wrap-reverse;
     grid-row: 2 / -1;
 }
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-row: 1 / -1;
+
+    flex: 2;
+    flex-basis: auto;
 }
 
-.announcements {
-
-}
-
-.trending {
-
+.side-content {
+    flex: 1;
 }
 
 h1 {
