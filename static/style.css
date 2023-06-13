@@ -1,3 +1,6 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
 
 * {
     box-sizing: border-box;
@@ -13,7 +16,8 @@ li {
 .container {
     display: grid;
     grid-template-columns: minmax(200px, 15vw) minmax(min-content, 1fr);
-    grid-template-rows: 100px 1fr 1fr;
+    grid-template-rows: 200px 100px 1fr 1fr;
+    min-height: 100svh;
 }
 
 .sidebar {
@@ -21,7 +25,7 @@ li {
     grid-column: 1 / 2;
 
     background-color: red;
-    border: 1px solid black;
+    border-right: 1px solid black;
 }
 
 .header {
@@ -30,19 +34,18 @@ li {
 }
 
 .content {
-    /* display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-    grid-template-rows: 1fr 1fr; */
     display: flex;
     flex-wrap: wrap-reverse;
-    grid-row: 2 / -1;
+    grid-row: 3 / -1;
 }
+
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: 300px;
+    grid-auto-rows: 300px;
     grid-row: 1 / -1;
+    gap: 16px;
 
     flex: 2;
     flex-basis: auto;
@@ -50,8 +53,63 @@ li {
 
 .side-content {
     flex: 1;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
 }
 
-h1 {
-    grid-column: 1 / -1;
+.card {
+    border: 1px solid green;
 }
+
+/*Now to individual elements in the layout*/
+
+
+/*Sidebar: */
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 12px;
+    color: white;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    align-items: center;
+    cursor: pointer;
+}
+
+.item:hover {
+    text-shadow: 0px 1px 15px rgb(46, 44, 44);
+}
+
+.item-first {
+    flex-grow: 0;
+    flex-shrink: 0;
+    font-size: clamp(12px, 1vw, 30px);
+    height: 100px;
+}
+.item-first img {
+    width: clamp(36px, 3vw, 50px);
+    justify-self: center;
+
+}
+
+.main-items, .secondary-items {
+    flex: 1;
+    font-size: clamp(12px, 0.8vw, 24px);
+
+}
+
+.sidebar img {
+    filter: invert(100%) sepia(97%) saturate(13%) hue-rotate(237deg) brightness(104%) contrast(104%);
+
+
+}
+
+.main-items img, .secondary-items img {
+    width: clamp(24px, 2vw, 36px);
+    justify-self: center;
+}
+
