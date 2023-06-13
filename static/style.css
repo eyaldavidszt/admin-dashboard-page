@@ -1,5 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #e2e8f0;
 }
 
 * {
@@ -16,49 +17,100 @@ li {
 .container {
     display: grid;
     grid-template-columns: minmax(200px, 15vw) minmax(min-content, 1fr);
-    grid-template-rows: 200px 100px 1fr 1fr;
+    grid-template-rows: min-content 100px 1fr 1fr;
     min-height: 100svh;
 }
 
 .sidebar {
     grid-row: 1 / -1;
     grid-column: 1 / 2;
-
-    background-color: red;
+    
     border-right: 1px solid black;
 }
 
 .header {
     grid-row: 1;
     grid-column: 2 / -1;
+    padding: 32px;
 }
 
+.your-projects {
+    align-self: center;
+    padding-left: 16px;
+}
 .content {
     display: flex;
     flex-wrap: wrap-reverse;
     grid-row: 3 / -1;
+    padding-left: 16px;
 }
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     grid-template-rows: 300px;
     grid-auto-rows: 300px;
     grid-row: 1 / -1;
     gap: 16px;
 
-    flex: 2;
-    flex-basis: auto;
+    flex: 3;
+
+}
+
+a {
+    text-decoration: none;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
 }
 
 .side-content {
     flex: 1;
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 300px 300px;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin: 8px;
+    gap: 16px;
 }
 
 .card {
-    border: 1px solid green;
+    box-shadow: 5px 3px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    background: rgb(127,83,75);
+    background: linear-gradient(90deg, rgba(127,83,75,1) 1%, rgba(255,255,255,1) 1%);
+    
+}
+
+.card-buttons {
+    display: grid;
+    grid-template-columns: 70% 10% 10% 10%;
+    > button {
+        border: none;
+        background-color: #fff;
+        cursor: pointer;
+    }
+}
+
+.card-buttons img {
+    width: 25px;
+}
+
+.card-btn-1 {
+    grid-column: 2;
+}
+
+.card-btn-2 {
+    grid-column: 3;
+}
+
+.card-btn-3 {
+    grid-column: 4;
 }
 
 /*Now to individual elements in the layout*/
@@ -70,7 +122,8 @@ li {
     display: flex;
     flex-direction: column;
     padding: 0px 12px;
-    color: white;
+    background-color: #E5F2C9;
+
 }
 
 .item {
@@ -81,7 +134,7 @@ li {
 }
 
 .item:hover {
-    text-shadow: 0px 1px 15px rgb(46, 44, 44);
+    text-shadow: 1px 1px 1px rgba(31, 3, 24, 0.5);
 }
 
 .item-first {
@@ -102,14 +155,163 @@ li {
 
 }
 
-.sidebar img {
-    filter: invert(100%) sepia(97%) saturate(13%) hue-rotate(237deg) brightness(104%) contrast(104%);
-
-
-}
-
 .main-items img, .secondary-items img {
     width: clamp(24px, 2vw, 36px);
     justify-self: center;
 }
 
+/* header: */
+
+.header {
+    background-color: #8C705F;
+}
+
+.header-row-1 {
+    display: flex;
+    padding: 16px;
+    flex-wrap: wrap;
+
+}
+
+.search {
+    display: flex;
+    flex: 1;
+    gap: 16px;
+}
+
+.profile {
+    display: flex;
+    flex-basis: auto;
+    align-items: center;
+    gap: 16px;
+}
+.search-btn img {
+    width: 25px;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+}
+
+input[type="text"] {
+    outline: none;
+    border-radius: 25px;
+    flex: 1;
+    max-width: 80%;
+    padding: 16px 32px;
+    align-self: center;
+    border: none;
+
+    box-shadow: 1px 4px 1px black;
+    transition: 0.08s;
+    font-size: 1.2rem;
+}
+
+input:focus {
+    box-shadow: 0px 00px 0px black;
+    border: 1px solid black;
+
+}
+
+.pfp img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.pfp span {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.pfp {
+    border-radius: 20px;
+}
+
+.pfp:hover {
+    box-shadow: 5px 5px 5px black;
+}
+
+.pfp {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.main-greeting img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.header-row-2 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main-greeting {
+    display: flex;
+    gap: 16px;
+    flex: 1;
+    
+}
+
+.greet {
+    color: white;
+}
+
+.header-post {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    gap: 16px;
+
+    flex-wrap: wrap;
+}
+
+.header-post button {
+    width: 180px;
+    height: 50px;
+    border-radius: 30px;
+    border: none;
+    background-color: #1F0318;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.announcements .card {
+    padding: 16px;
+    height: 250px;
+    background-color: white;
+    background: rgb(255,255,255);
+    
+    margin-top: 8px;
+}
+
+.trending img {
+    width: 50px;
+}
+
+.trend {
+    display: grid;
+    grid-template-columns: 70px auto;
+}
+
+.trending .card {
+    padding: 16px;
+    gap: 20px;
+    background-color: white;
+    background: rgb(255,255,255);
+
+}
+
+.trending, .announcements {
+    display: grid;
+}
