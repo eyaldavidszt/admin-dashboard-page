@@ -122,7 +122,7 @@ a {
     display: flex;
     flex-direction: column;
     padding: 0px 12px;
-    background-color: #E5F2C9;
+    background-color: white;
 
 }
 
@@ -131,10 +131,11 @@ a {
     grid-template-columns: 50px 1fr;
     align-items: center;
     cursor: pointer;
+    transition: 0.1s ease;
 }
 
 .item:hover {
-    text-shadow: 1px 1px 1px rgba(31, 3, 24, 0.5);
+    transform: scale(1.01);
 }
 
 .item-first {
@@ -241,6 +242,7 @@ input:focus {
     align-items: center;
     gap: 16px;
     transition: 0.1s;
+    cursor: pointer;
 }
 
 .main-greeting img {
